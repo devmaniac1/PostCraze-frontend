@@ -8,7 +8,7 @@ function AppLayout() {
       {/* {isLoading && <Loader />} */}
       <Header />
       <div className="mainoutletContainer">
-        <main className="mx-auto max-w-3xl">
+        <main className="">
           <Outlet />
         </main>
       </div>
