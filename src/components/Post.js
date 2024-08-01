@@ -1,36 +1,17 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Comments from "./Comments";
+import { getTimeDifferenceString } from "../helpers/helper";
 
-function Post() {
-  const [post, setPost] = useState(null);
-  const { postId } = useParams();
-  useEffect(() => {
-    async function fetchPost() {
-      try {
-        const res = await fetch(`http://localhost:3000/posts/${postId}`);
-        const data = await res.json();
-        setPost(data);
-      } catch (e) {
-        console.log(e);
-      }
-    }
-    fetchPost();
-  }, [postId]);
+function Post({ post }) {
+  const time = getTimeDifferenceString(post.createdAt);
+
   return (
-    <div>
-      {post && (
-        <div>
-          {post.map((postItem) => (
-            <>
-              <h3>{postItem.title}</h3>
-              <p>{postItem.content}</p>
-            </>
-          ))}
-          <h2>Comments</h2>
-          <Comments postId={postId} />
-        </div>
-      )}
+    <div className={`flex flex-col gap-3 bg-slate-300 rounded-md py-1 px-2`}>
+      <div className="flex justify-between flex-wrap items-center">
+        <p className={`font-semibold text-xl ${post.color} md:text-2xl`}>
+          {post.title}
+        </p>
+        <p className="text-xs md:text-base">{time}</p>
+      </div>
+      <p className="text-lg md:text-xl">{post.content}</p>
     </div>
   );
 }

@@ -1,12 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-import Home, { loader as PostLoader } from "./pages/Home";
-
-import AppLayout from "./ui/AppLayout";
-
+import Home from "./pages/Home";
 import PostDetail from "./pages/PostDetail";
 import CreatePost from "./pages/CreatePost";
 import Error from "./ui/Error";
+import AppLayout from "./ui/AppLayout";
+import { PostsProvider } from "./contexts/PostsContext"; // Adjust path as necessary
 
 const router = createBrowserRouter([
   {
@@ -16,9 +14,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: PostLoader,
       },
-
       {
         path: "/createPost",
         element: <CreatePost />,
@@ -32,5 +28,9 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <PostsProvider>
+      <RouterProvider router={router} />
+    </PostsProvider>
+  );
 }
