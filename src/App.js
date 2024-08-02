@@ -4,7 +4,7 @@ import PostDetail from "./pages/PostDetail";
 import CreatePost from "./pages/CreatePost";
 import Error from "./ui/Error";
 import AppLayout from "./ui/AppLayout";
-import { PostsProvider } from "./contexts/PostsContext"; // Adjust path as necessary
+import { PostsProvider } from "./contexts/PostsContext";
 
 const router = createBrowserRouter([
   {
