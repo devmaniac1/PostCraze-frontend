@@ -42,8 +42,16 @@ export function PostsProvider({ children }) {
     await fetchPosts();
   }
 
+  function getPopularPosts() {
+    if (!posts) return;
+    const popularPosts = posts.filter((post) => post.comments.length > 0);
+    return popularPosts;
+  }
+
   return (
-    <PostsContext.Provider value={{ posts, updatePost, isLoading }}>
+    <PostsContext.Provider
+      value={{ posts, updatePost, isLoading, getPopularPosts }}
+    >
       {children}
     </PostsContext.Provider>
   );

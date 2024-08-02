@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer components {
+  .sticky-top {
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 1rem; /* Adjust this value as needed */
+  }
+
   .loader {
     width: 45px;
     aspect-ratio: 0.75;
