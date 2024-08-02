@@ -38,7 +38,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="w-9/12 mx-auto my-6 md:w-6/12">
+    <div className="w-full px-4 mx-auto my-6 md:w-6/12">
       <Button to="-1">{"Back"}</Button>
       <h2 className="text-center font-semibold mt-6 ">Create a New Post</h2>
       <div className="flex flex-col gap-4 mt-6">
