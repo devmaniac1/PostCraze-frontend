@@ -14,7 +14,7 @@ function Home() {
   );
   return (
     //   md:w-6/12
-    <div className="w-9/12 md:w-full md:grid grid-cols-[1fr_2fr_1fr] my-6 mx-auto gap-x-3 px-4">
+    <div className="w-11/12 md:w-full md:grid grid-cols-[1fr_2fr_1fr] my-6 mx-auto gap-x-3 px-4">
       <div className="hidden md:block"></div>
       <div>
         <Button to="/createPost">Create Post</Button>
